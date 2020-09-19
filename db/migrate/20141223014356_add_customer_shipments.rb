@@ -1,4 +1,4 @@
-class AddCustomerShipments < ActiveRecord::Migration
+class AddCustomerShipments < ActiveRecord::Migration[4.2]
   def change
     create_table "spree_customer_shipments" do |t|
       t.belongs_to  :return_authorization
