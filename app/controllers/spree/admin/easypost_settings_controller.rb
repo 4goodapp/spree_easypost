@@ -9,10 +9,15 @@ module Spree
       def update
         update_easypost_settings
 
-        redirect_to :back
+        redirect_to new_loc
       end
 
       private
+      
+      def new_loc
+        url = request.referer.to_s
+        url == "" || url == request.url ? root_path : url
+     end
 
       def load_stock_locations
         @stock_locations = Spree::StockLocation.all
